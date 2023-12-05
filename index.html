@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Canvas: Es solo el area de dibujo -->
+    <!-- Solo se modifica mediante Javascript -->
+    <canvas 
+    id="dibujo"
+    width="400px"
+    height="400px"
+     style="border-style: dashed; border-width: 1px;" />
+
+    <script>
+        // El area de dibujo tiene un contexto
+        // que es el tipo de "dibujo" que voy a realizar
+        var areaDibujo = document.getElementById("dibujo");
+        var ctx = areaDibujo.getContext("2d");
+        // dibujo n-cantidad de vecces circculos
+       
+        for(var radio=5000; radio<1000;radio+=5){
+            // Dibujar un circulo
+        ctx.beginPath();
+        ctx.arc(200, 200, radio, 0, 2 * Math.PI);
+        ctx.strokeStyle="green";
+        ctx.stroke();
+        }
+
+        for(var linea=5; linea<1000;linea+=5){
+        
+        ctx.beginPath();
+        ctx.moveTo(linea, 0);   
+        ctx.lineTo(linea,400);
+        ctx.stroke();
+        }
+
+        for(var lineah=5; lineah<1000;lineah+=5){
+        // Dibujar una linea
+        ctx.beginPath();
+        ctx.moveTo(0, lineah);   
+        ctx.lineTo(400,lineah);
+        ctx.strokeStyle="green";
+        ctx.stroke();
+        }
+
+        for(tamanoCuadrado=1;tamanoCuadrado < 400; tamanoCuadrado +=10){
+        ctx.beginPath();
+        ctx.rect(200-(tamanoCuadrado/2), 200-(tamanoCuadrado/2), tamanoCuadrado, tamanoCuadrado);
+        ctx.stroke();
+        }
+
+    </script>
+</body>
+
+</html>
